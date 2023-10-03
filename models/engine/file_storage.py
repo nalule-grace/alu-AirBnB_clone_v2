@@ -17,8 +17,7 @@ class FileStorage:
             for key, value in self.__objects.items():
                 if type(value) == cls:
                     filtered_obj[key] = value
-            return filtered_obj    
-
+            return filtered_obj
 
     def new(self, obj):
         """Adds new object to storage dictionary"""
@@ -68,4 +67,3 @@ class FileStorage:
     def close(self):
         """"Deserializes the JSON files to objects"""
         self.reload()
-        
