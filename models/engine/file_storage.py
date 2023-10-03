@@ -13,11 +13,11 @@ class FileStorage:
         if cls is None:
             return self.__objects
         else:
-            filtered_obj ={}
-            for key,value in self.__objects.items():
+            filtered_obj = {}
+            for key, value in self.__objects.items():
                 if type(value) == cls:
                     filtered_obj[key] = value
-            return filtered_obj        
+            return filtered_obj    
 
 
     def new(self, obj):
@@ -27,7 +27,7 @@ class FileStorage:
     def delete(self, obj=None):
         """Deletes an object from objects"""
         if obj is not None:
-            key = key = obj.__class__.__name__+"."+ obj.id
+            key = key = obj.__class__.__name__+ "." + obj.id
             if key in self.__objects:
                 del self.__objects[key]
                 self.save()
@@ -64,6 +64,8 @@ class FileStorage:
                         self.all()[key] = classes[val['__class__']](**val)
         except FileNotFoundError:
             pass
+
     def close(self):
         """"Deserializes the JSON files to objects"""
         self.reload()
+        
