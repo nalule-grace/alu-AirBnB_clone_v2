@@ -1,8 +1,10 @@
 #!/usr/bin/python3
-"""import .tgz
+"""
+import .tgz
+
 """
 
-from  datetime import datetime
+from datetime import datetime
 from fabric.api import local
 
 
