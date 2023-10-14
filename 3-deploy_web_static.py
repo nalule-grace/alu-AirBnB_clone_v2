@@ -12,7 +12,7 @@ env.user = "ubuntu"
 
 def do_pack():
     """
-    generates .tgz archive from contents of web_static
+        generates .tgz archive from contents of web_static
     """
     local("mkdir -p versions")
     current_time = datetime.now().strftime("%Y%m%d%H%M%S")
@@ -25,7 +25,7 @@ def do_pack():
 
 def do_deploy(archive_path):
     """
-    Distribute archive
+        Distribute archive
     """
     if os.path.exists(archive_path):
         archive_file = archive_path[9:]
@@ -35,7 +35,7 @@ def do_deploy(archive_path):
         run("sudo mkdir -p {}".format(newest_version))
         run("sudo tar -xzf {} -c {}/".format(archived_file, newest_version))
         run("sudo rm {}".format(archived_file))
-        run("sudo mv {}/web_static".format(newest_version,newest_version))
+        run("sudo mv {}/web_static".format(newest_version, newest_version))
         run("sudo rm -rf {}/web_static".format(newst_version))
         run("sudo rm -rf /data/web_static/current")
         run("sudo ln -s {} /data/web_static/current".format(newest_version))

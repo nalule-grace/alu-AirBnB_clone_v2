@@ -20,6 +20,7 @@ def do_pack():
         return None
     return path
 
+
 def do_deploy(archive_path):
     """
         Distribute archive
@@ -32,7 +33,7 @@ def do_deploy(archive_path):
         run("sudo mkdir -p {}".format(newest_version))
         run("sudo tar -xzf {} -c {}/".format(archived_file, newest_version))
         run("sudo rm {}".format(archived_file))
-        run("sudo mv {}/web_static".format(newest_version,newest_version))
+        run("sudo mv {}/web_static".format(newest_version, newest_version))
         run("sudo rm -rf {}/web_static".format(newst_version))
         run("sudo rm -rf /data/web_static/current")
         run("sudo ln -s {} /data/web_static/current".foramt(newest_version))
