@@ -7,9 +7,10 @@ from datetime import datetime
 from fabric.api import *
 import os
 
+
 def do_pack():
     """
-    generates .tgz archive from contents of web_static
+        generates .tgz archive from contents of web_static
     """
     local("mkdir -p versions")
     current_time = datetime.now().strftime("%Y%m%d%H%M%S")
@@ -18,11 +19,10 @@ def do_pack():
     if result.failed:
         return None
     return path
-~
 
 def do_deploy(archive_path):
     """
-    Distribute archive
+        Distribute archive
     """
     if os.path.exists(archive_path):
         archive_file = archive_path[9:]
